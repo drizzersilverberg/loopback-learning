@@ -6,6 +6,7 @@
     "node": ">=4"
   },
   "scripts": {
+    "nodemon": "nodemon",
     "lint": "eslint .",
     "start": "node .",
     "posttest": "npm run lint && nsp check"
