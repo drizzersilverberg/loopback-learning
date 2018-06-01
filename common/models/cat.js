@@ -2,9 +2,14 @@
 
 module.exports = function(Cat) {
 
+  Cat.observer('before save', function(context, next) {
+    if (context.instance) context.instance.updated = new Date();
+    next();
+  });
+
   Cat.afterRemote('findById', function (context, cat, next) {
-      cat.description = cat.name + ' is ' + cat.age + ' years old and is a ' + cat.breed;
-      next();
+    cat.description = cat.name + ' is ' + cat.age + ' years old and is a ' + cat.breed;
+    next();
   });
 
   /* above function will add 'description' key to response body of GET cat/{id} endpoint */
