@@ -2,6 +2,13 @@
 
 module.exports = function(Cat) {
 
+  Cat.afterRemote('findById', function (context, cat, next) {
+      cat.description = cat.name + ' is ' + cat.age + ' years old and is a ' + cat.breed;
+      next();
+  });
+
+  /* above function will add 'description' key to response body of GET cat/{id} endpoint */
+
   Cat.adoptable = function(id, callback) {
     Cat.findById(id, function(error, cat) {
       if (error) return callback("Error", null);
