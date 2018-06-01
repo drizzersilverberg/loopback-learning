@@ -5,10 +5,10 @@
     "file": "mydata.json"
   },
   "mymongo": {
-    "name": "mymongo",
     "host": "localhost",
     "port": "27017",
     "database": "loopback1",
+    "name": "mymongo",
     "connector": "mongodb"
   }
 }
