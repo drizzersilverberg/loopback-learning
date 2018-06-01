@@ -2,7 +2,7 @@
 
 module.exports = function(Cat) {
 
-  Cat.observer('before save', function(context, next) {
+  Cat.observe('before save', function(context, next) {
     if (context.instance) context.instance.updated = new Date();
     next();
   });
